@@ -10,3 +10,4 @@ pandas
 polars
 ragas
 seaborn
+dspy-ai

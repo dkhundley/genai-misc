@@ -129,6 +129,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+*venv*/
 
 # Spyder project settings
 .spyderproject
@@ -161,6 +162,14 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+# Extra ignores added by @dkhundley
 .DS_Store
 keys/
-*venv*/
+sensitive/
+.terraform/
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+terraform.tfstate.*
+terraform.tfstate
+.terraform/*
+*/aws_files/*

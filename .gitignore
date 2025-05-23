@@ -173,3 +173,5 @@ terraform.tfstate.*
 terraform.tfstate
 .terraform/*
 */aws_files/*
+.python-version
+uv.lock

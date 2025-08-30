@@ -1,0 +1,261 @@
+[
+  {
+    "topic": "Event Strategy & Stakeholder Alignment",
+    "documents": [
+      {
+        "doc_title": "Event Purpose & Success Metrics Framework",
+        "doc_description": "Defines the event\u2019s business objectives, key success metrics (pipeline, revenue influence, satisfaction), and alignment with corporate strategy. Format: 2\u20133 page brief plus a KPI matrix outlining targets and measurement methods."
+      },
+      {
+        "doc_title": "Stakeholder Map & RACI Matrix",
+        "doc_description": "Identifies internal and external stakeholders, their influence, and decision rights; clarifies who is Responsible, Accountable, Consulted, and Informed. Format: visualization of stakeholder map and a spreadsheet RACI grid."
+      },
+      {
+        "doc_title": "Audience Personas & Value Proposition",
+        "doc_description": "Profiles target attendee segments with goals, pain points, motivations, and barriers to attendance; articulates tailored value propositions. Format: persona one-pagers and JTBD (jobs-to-be-done) summaries."
+      },
+      {
+        "doc_title": "Event Narrative & Messaging Architecture",
+        "doc_description": "Outlines the event\u2019s theme, story arc, proof points, taglines, and tone of voice to guide content, creative, and speaker messaging. Format: messaging deck with approved copy blocks and examples."
+      },
+      {
+        "doc_title": "Business Case & ROI Model",
+        "doc_description": "Quantifies expected costs and returns including revenue, pipeline influence, brand lift, and retention; includes assumptions and scenarios. Format: financial model spreadsheet with inputs, outputs, and sensitivity analysis."
+      },
+      {
+        "doc_title": "Timeline & Governance Cadence",
+        "doc_description": "Defines milestones, stage gates, steering committee rhythm, and decision forums to keep the project on track. Format: Gantt chart with critical path and a governance calendar with agendas."
+      },
+      {
+        "doc_title": "Risk Appetite & Decision Escalation Framework",
+        "doc_description": "Sets acceptable risk thresholds, trigger conditions, authority levels, and escalation paths for timely decision-making. Format: policy document with escalation flowchart and contact tree."
+      },
+      {
+        "doc_title": "Post-Event Impact Measurement Plan",
+        "doc_description": "Specifies metrics, data sources, attribution methods, and reporting cadence for post-event analysis. Format: measurement plan, dashboard specification, and survey linkage map."
+      }
+    ]
+  },
+  {
+    "topic": "Budgeting & Financial Management",
+    "documents": [
+      {
+        "doc_title": "Master Budget Workbook",
+        "doc_description": "Comprehensive, itemized budget covering expenses and revenues by category, with version control and variance tracking. Format: spreadsheet with tabs for assumptions, line items, and summary dashboards."
+      },
+      {
+        "doc_title": "Cost Baseline & Change Control Procedure",
+        "doc_description": "Establishes the approved budget baseline, variance thresholds, and formal change request process. Format: SOP document with change request form templates and approval matrix."
+      },
+      {
+        "doc_title": "Revenue Model & Pricing Strategy",
+        "doc_description": "Defines ticket tiers, discounts, bundles, dynamic pricing rules, and expected conversion rates. Format: pricing matrix and forecasting model with break-even and sensitivity scenarios."
+      },
+      {
+        "doc_title": "Sponsorship Prospectus & Rate Card",
+        "doc_description": "Outlines sponsorship packages, benefits inventory, audience demographics, and pricing. Format: sales deck plus one-page rate card designed for outreach."
+      },
+      {
+        "doc_title": "Procure-to-Pay Workflow & Approvals Matrix",
+        "doc_description": "Maps purchasing steps from vendor selection through payment, including approvers and documentation requirements. Format: swimlane process diagram and approval hierarchy table."
+      },
+      {
+        "doc_title": "Cash Flow Forecast & Funding Plan",
+        "doc_description": "Projects monthly inflows/outflows, deposit schedules, and contingency reserves to ensure liquidity. Format: cash flow spreadsheet, burn chart, and funding trigger points."
+      },
+      {
+        "doc_title": "Contract Templates & Financial Clauses Library",
+        "doc_description": "Standardized terms for vendors and sponsors, emphasizing payment terms, cancellation, force majeure, and penalties. Format: editable legal templates with clause options and guidance notes."
+      },
+      {
+        "doc_title": "Financial Reconciliation & Post-Mortem Report",
+        "doc_description": "Compares actuals vs. budget, analyzes variances, and documents lessons learned for future events. Format: narrative report with charts, general ledger tie-out, and recommendations."
+      }
+    ]
+  },
+  {
+    "topic": "Venue, Production & Technical Logistics",
+    "documents": [
+      {
+        "doc_title": "Venue Shortlist & Comparative Analysis",
+        "doc_description": "Evaluates candidate venues by capacity, dates, cost, restrictions, accessibility, and risk. Format: comparison matrix, site visit notes, and photo references."
+      },
+      {
+        "doc_title": "Floor Plans, Capacity & Fire Codes Pack",
+        "doc_description": "Provides scaled plans with layout options, room capacities, egress routes, and code compliance notes. Format: CAD/PDF set with annotations and capacity charts."
+      },
+      {
+        "doc_title": "Load-in Load-out Schedule & Dock Plan",
+        "doc_description": "Sequenced logistics for vendors, staging, and freight with dock assignments and elevator usage. Format: detailed run-sheet, dock map, and contact list."
+      },
+      {
+        "doc_title": "AV Spec, Stage Plot & Signal Flow",
+        "doc_description": "Lists audio, video, lighting gear, mic counts, stage layout, and patch diagrams for consistent execution. Format: technical rider, stage plot, and signal flow diagram."
+      },
+      {
+        "doc_title": "Power, Rigging & Internet Engineering Brief",
+        "doc_description": "Details electrical distribution, rigging loads/points, and network architecture for attendee and production needs. Format: engineering brief with load calculations and network topology."
+      },
+      {
+        "doc_title": "Signage, Wayfinding & Branding Plan",
+        "doc_description": "Comprehensive sign inventory with placements, messaging hierarchy, and production specs. Format: signage matrix, elevations, and installation schedule."
+      },
+      {
+        "doc_title": "F&B Service Model & BEO Summary",
+        "doc_description": "Summarizes menus, headcounts, dietary accommodations, service style, and timing across functions. Format: banquet event orders packet and service run-of-show."
+      },
+      {
+        "doc_title": "Transportation, Parking & Shuttle Operations Plan",
+        "doc_description": "Designs attendee and staff transport routes, schedules, ADA access, and traffic control. Format: operations plan with route maps, timetables, and communication templates."
+      }
+    ]
+  },
+  {
+    "topic": "Program Design, Speakers & Content",
+    "documents": [
+      {
+        "doc_title": "Agenda Architecture & Track Map",
+        "doc_description": "Defines plenary vs. breakout balance, track themes, session lengths, and room allocations. Format: grid schedule, capacity map, and conflict matrix."
+      },
+      {
+        "doc_title": "Session Design Templates & Facilitation Guides",
+        "doc_description": "Provides templates with learning objectives, interactive methods, timing, and materials list for different session types. Format: editable templates and facilitator handbooks."
+      },
+      {
+        "doc_title": "Speaker Pipeline & Vetting Criteria",
+        "doc_description": "Outlines sourcing strategy, diversity targets, evaluation rubrics, and outreach cadence. Format: pipeline tracker, rubric, and outreach scripts."
+      },
+      {
+        "doc_title": "Speaker Contracts & Deliverables Checklist",
+        "doc_description": "Covers terms (IP, recording rights, travel), deadlines, and required materials. Format: contract template and deliverables checklist with reminders."
+      },
+      {
+        "doc_title": "Content Asset Plan & Slide Standards",
+        "doc_description": "Defines templates, brand standards, file naming, review cycle, and versioning for decks and media. Format: template pack, style guide, and QA checklist."
+      },
+      {
+        "doc_title": "Abstract Management & Review Rubric",
+        "doc_description": "Specifies submission fields, scoring criteria, committee workflow, and acceptance communications. Format: submission form schema, rubric, and reviewer portal guide."
+      },
+      {
+        "doc_title": "Rehearsal Schedule & Show Caller Scripts",
+        "doc_description": "Plans technical rehearsals, stage timings, cues, and contingencies for plenary and breakouts. Format: rehearsal calendar, cue sheets, and show flow."
+      },
+      {
+        "doc_title": "CE Credits & Learning Outcomes Alignment",
+        "doc_description": "Maps sessions to accreditation requirements, learning objectives, and attendance tracking for continuing education. Format: alignment matrix and compliance checklist."
+      }
+    ]
+  },
+  {
+    "topic": "Marketing, Registration & Communications",
+    "documents": [
+      {
+        "doc_title": "Brand Kit & Creative Guidelines",
+        "doc_description": "Provides logos, color palettes, typography, imagery style, and usage rules to ensure consistent branding. Format: brand book and asset library."
+      },
+      {
+        "doc_title": "Audience Acquisition Plan & Channel Mix",
+        "doc_description": "Defines target segments, messaging, budget, KPIs, and tactics across email, paid, organic, partners, and field. Format: campaign plan and media calendar."
+      },
+      {
+        "doc_title": "Registration Flow UX & Form Field Map",
+        "doc_description": "Documents step-by-step registration journey, required fields, conditional logic, and payment options. Format: wireframes and form schema with validation rules."
+      },
+      {
+        "doc_title": "CRM MA Integration & Data Governance",
+        "doc_description": "Specifies data mappings, sync cadence, consent capture, deduplication, and segmentation rules. Format: integration specification and data dictionary."
+      },
+      {
+        "doc_title": "Email Nurture Calendar & Copy Bank",
+        "doc_description": "Schedules send cadence by segment and provides approved subject lines, CTAs, and body copy. Format: calendar spreadsheet and copy repository."
+      },
+      {
+        "doc_title": "Media Plan & Performance Dashboard",
+        "doc_description": "Allocates media budget, placements, targets, and measurement framework with real-time tracking. Format: plan document and dashboard specification."
+      },
+      {
+        "doc_title": "Press Kit & PR Briefing Book",
+        "doc_description": "Includes press releases, speaker bios, FAQs, photography, and interview talking points. Format: downloadable press package and briefing guide."
+      },
+      {
+        "doc_title": "Crisis Communications Playbook",
+        "doc_description": "Defines approval workflows, spokesperson roles, holding statements, and channel protocols for incidents. Format: playbook with templates and contact trees."
+      }
+    ]
+  },
+  {
+    "topic": "Attendee Experience & Onsite Services",
+    "documents": [
+      {
+        "doc_title": "Registration Desk SOP & Staffing Plan",
+        "doc_description": "Standard operating procedures for check-in, equipment setup, queue management, and issue resolution with staffing shifts. Format: SOP manual and staffing roster."
+      },
+      {
+        "doc_title": "Badging, Access Control & Credential Hierarchy",
+        "doc_description": "Defines badge types, access levels, encoding specs, and checkpoint layouts for secure flow. Format: credential matrix and checkpoint map."
+      },
+      {
+        "doc_title": "Accessibility & Inclusion Implementation Guide",
+        "doc_description": "Operationalizes ADA compliance, captioning, interpreters, dietary inclusion, and sensory accommodations. Format: checklist, vendor list, and service request forms."
+      },
+      {
+        "doc_title": "Hospitality, Concierge & VIP Protocols",
+        "doc_description": "Covers VIP welcome journeys, green room standards, escorts, gifting, and special requests. Format: protocol document and function-specific run sheets."
+      },
+      {
+        "doc_title": "Mobile App Content Map & Push Strategy",
+        "doc_description": "Catalogs app modules, ownership, update cadence, and push notification plan tied to onsite moments. Format: content sitemap and messaging calendar."
+      },
+      {
+        "doc_title": "Community & Networking Activation Plan",
+        "doc_description": "Designs matchmaking, lounges, hosted meetups, and icebreakers to foster connections. Format: activation playbook with layouts and staffing notes."
+      },
+      {
+        "doc_title": "Amenities & Wellness Program",
+        "doc_description": "Plans quiet rooms, hydration, childcare options, mental health resources, and movement breaks. Format: amenities map, SOPs, and vendor agreements."
+      },
+      {
+        "doc_title": "Surveys, NPS & Feedback Instruments",
+        "doc_description": "Establishes survey design, timing (in-app, onsite, post), incentives, and reporting. Format: question bank, distribution plan, and analytics template."
+      }
+    ]
+  },
+  {
+    "topic": "Risk, Safety, Legal & Sustainability",
+    "documents": [
+      {
+        "doc_title": "Comprehensive Risk Register & Mitigation Plan",
+        "doc_description": "Identifies operational, financial, reputational, and environmental risks with owners, likelihood/impact, and mitigations. Format: register spreadsheet with heat map."
+      },
+      {
+        "doc_title": "Emergency Action Plan & Incident Command Structure",
+        "doc_description": "Details evacuation, shelter-in-place, severe weather, and active threat procedures with defined roles. Format: EAP manual, ICS org chart, and muster maps."
+      },
+      {
+        "doc_title": "Health Protocols & Medical Services Plan",
+        "doc_description": "Defines onsite medical coverage, public health guidelines, PPE, isolation room flow, and reporting. Format: clinical protocol, staffing grid, and location map."
+      },
+      {
+        "doc_title": "Insurance Portfolio & COI Tracker",
+        "doc_description": "Specifies required coverages (GL, auto, workers\u2019 comp, event cancellation), limits, and certificate collection. Format: requirements checklist and COI tracking log."
+      },
+      {
+        "doc_title": "Permits, Licenses & Regulatory Compliance Checklist",
+        "doc_description": "Lists permits (fire, special events, pyrotechnics, liquor), authorities, lead times, and submission artifacts. Format: checklist with jurisdiction contacts and due dates."
+      },
+      {
+        "doc_title": "Data Privacy Impact Assessment & Consent Framework",
+        "doc_description": "Assesses PII processing, retention, DPA needs, cross-border transfers, and consent mechanisms. Format: DPIA report, data flow diagram, and consent language library."
+      },
+      {
+        "doc_title": "Security Plan & Crowd Management Strategy",
+        "doc_description": "Covers threat assessment, guard posts, screening, bag policy, queue design, and barricade plans. Format: security operations plan with CAD overlays and comms protocols."
+      },
+      {
+        "doc_title": "Sustainability Strategy & Carbon Accounting Model",
+        "doc_description": "Sets goals for waste, energy, travel emissions, supplier standards, and reporting methodology. Format: sustainability strategy document and emissions calculator workbook."
+      }
+    ]
+  }
+]

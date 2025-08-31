@@ -1,0 +1,3 @@
+# MCP arXiv Server Dependencies  
+arxiv>=2.2.0
+mcp>=1.13.1

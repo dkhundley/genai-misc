@@ -1,0 +1,21 @@
+# Ignore files not needed in the Docker image
+.git
+.gitignore
+*.md
+!README.md
+.DS_Store
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+venv/
+env/
+ENV/
+.venv/
+notebooks/
+*.ipynb
+.jupyter/
+papers/*/
+!papers/.gitkeep

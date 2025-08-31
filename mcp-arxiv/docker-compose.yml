@@ -1,0 +1,25 @@
+services:
+  # Standard MCP server (stdio transport)
+  mcp-arxiv-server:
+    build: .
+    container_name: mcp-arxiv-server
+    volumes:
+      - ./papers:/app/papers  # Persist paper data
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    stdin_open: true  # Required for MCP stdio transport
+    tty: true         # Required for MCP stdio transport
+
+  # HTTP MCP server (streamable HTTP transport)
+  mcp-arxiv-http:
+    build: .
+    container_name: mcp-arxiv-http
+    ports:
+      - "8000:8000"  # Expose HTTP MCP endpoint
+    volumes:
+      - ./papers:/app/papers  # Persist paper data
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    command: ["python", "src/mcp_arxiv_http_server.py"]

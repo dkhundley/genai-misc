@@ -1,11 +1,22 @@
-import os
 import json
-from typing import List
+from typing import List, Dict, Any
 
 import arxiv
 from mcp.server.fastmcp import FastMCP
 
-PAPER_DIR = "papers"
+# In-memory storage for papers data
+papers_storage: Dict[str, Dict[str, Any]] = {}
+
+def get_all_paper_ids() -> List[str]:
+    """Helper function to get all paper IDs across all topics"""
+    all_ids = []
+    for topic_papers in papers_storage.values():
+        all_ids.extend(topic_papers.keys())
+    return list(set(all_ids))  # Remove duplicates
+
+def get_topics_list() -> List[str]:
+    """Helper function to get all stored topics"""
+    return list(papers_storage.keys())
 
 mcp = FastMCP("research")
 
@@ -34,19 +45,17 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
 
     papers = arxiv_client.results(search)
 
-    path = os.path.join(PAPER_DIR, topic.lower().replace(" ", "_"))
-    os.makedirs(path, exist_ok=True)
-    file_path = os.path.join(path, "papers_info.json")
-
-    try:
-        with open(file_path, "r") as json_file:
-            papers_info = json.load(json_file)
-    except (FileNotFoundError, json.JSONDecodeError):
-        papers_info = {}
+    # Create a topic key for in-memory storage
+    topic_key = topic.lower().replace(" ", "_")
+    
+    # Initialize topic storage if it doesn't exist
+    if topic_key not in papers_storage:
+        papers_storage[topic_key] = {}
 
     paper_ids = []
     for paper in papers:
-        paper_ids.append(paper.get_short_id())
+        paper_id = paper.get_short_id()
+        paper_ids.append(paper_id)
         paper_info = {
             'title': paper.title,
             'authors': [author.name for author in paper.authors],
@@ -54,12 +63,9 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
             'pdf_url': paper.pdf_url,
             'published': str(paper.published.date())
         }
-        papers_info[paper.get_short_id()] = paper_info
+        papers_storage[topic_key][paper_id] = paper_info
 
-    with open(file_path, "w") as json_file:
-        json.dump(papers_info, json_file, indent=2)
-
-    print(f'Results are saved in: {file_path}')
+    print(f'Stored {len(paper_ids)} papers for topic "{topic}" in memory')
 
     return paper_ids
 
@@ -67,7 +73,7 @@ def search_papers(topic: str, max_results: int = 5) -> List[str]:
 @mcp.tool()
 def extract_info(paper_id: str) -> str:
     '''
-    Search for information about a specific paper across all topic directories
+    Search for information about a specific paper across all stored topics
 
     Inputs:
         - paper_id (str): The ID of the paper to extract information from
@@ -76,83 +82,117 @@ def extract_info(paper_id: str) -> str:
         - str: A summary of the paper's information
     '''
 
-    for item in os.listdir(PAPER_DIR):
-        item_path = os.path.join(PAPER_DIR, item)
-        if os.path.isdir(item_path):
-            json_file_path = os.path.join(item_path, "papers_info.json")
-            try:
-                with open(json_file_path, "r") as json_file:
-                    papers_info = json.load(json_file)
-                    if paper_id in papers_info:
-                        paper = papers_info[paper_id]
-                        return f"Title: {paper['title']}\nAuthors: {', '.join(paper['authors'])}\nSummary: {paper['summary']}\nPDF URL: {paper['pdf_url']}\nPublished: {paper['published']}"
-            except (FileNotFoundError, json.JSONDecodeError):
-                print(f'Error reading {json_file_path}: {str(e)}')
-                continue
+    # Search through all topics in memory
+    for topic_key, papers_info in papers_storage.items():
+        if paper_id in papers_info:
+            paper = papers_info[paper_id]
+            return f"Title: {paper['title']}\nAuthors: {', '.join(paper['authors'])}\nSummary: {paper['summary']}\nPDF URL: {paper['pdf_url']}\nPublished: {paper['published']}"
 
     return f"There's no saved information related to paper ID: {paper_id}"
+
+
+@mcp.tool()
+def get_papers_stats() -> str:
+    '''
+    Get statistics about papers stored in memory
+
+    Returns:
+        - str: Statistics about stored papers
+    '''
+    
+    if not papers_storage:
+        return "No papers are currently stored in memory. Use search_papers() to add some papers."
+    
+    total_topics = len(papers_storage)
+    total_papers = sum(len(papers) for papers in papers_storage.values())
+    unique_papers = len(get_all_paper_ids())
+    
+    stats = f"Paper Storage Statistics:\n"
+    stats += f"- Total topics: {total_topics}\n"
+    stats += f"- Total paper entries: {total_papers}\n"
+    stats += f"- Unique papers: {unique_papers}\n\n"
+    
+    stats += "Topics and paper counts:\n"
+    for topic, papers in papers_storage.items():
+        readable_topic = topic.replace("_", " ").title()
+        stats += f"- {readable_topic}: {len(papers)} papers\n"
+    
+    return stats
+
+
+@mcp.tool()
+def clear_papers_storage() -> str:
+    '''
+    Clear all papers from memory storage
+
+    Returns:
+        - str: Confirmation message
+    '''
+    
+    if not papers_storage:
+        return "Paper storage is already empty."
+    
+    papers_count = sum(len(papers) for papers in papers_storage.values())
+    topics_count = len(papers_storage)
+    
+    papers_storage.clear()
+    
+    return f"Cleared {papers_count} papers from {topics_count} topics from memory storage."
 
 
 @mcp.resource('papers://folders')
 def get_available_folders() -> str:
     '''
-    List all available topic folders in the papers directory.
+    List all available topic folders stored in memory.
     This resource provides a simple list of all available topic folders.
     '''
 
-    folders = []
-    
-    # Getting all the topic directories
-    if os.path.exists(PAPER_DIR):
-        for topic_dir in os.listdir(PAPER_DIR):
-            topic_path = os.path.join(PAPER_DIR, topic_dir)
-            if os.path.isdir(topic_path):
-                papers_file = os.path.join(topic_path, "papers_info.json")
-                if os.path.exists(papers_file):
-                    folders.append(topic_dir)
+    # Get all topics from memory
+    folders = list(papers_storage.keys())
 
     content = "# Available Topics\n\n"
     if folders:
         for folder in folders:
-            content += f"- {folder}\n"
+            # Convert topic key back to readable format
+            readable_topic = folder.replace("_", " ").title()
+            content += f"- {readable_topic} (key: {folder})\n"
     else:
-        content += "No topics found.\n"
+        content += "No topics found. Use search_papers() to add some topics.\n"
 
     return content
 
 @mcp.resource('papers://{topic}')
 def get_topic_papers(topic: str) -> str:
     '''
-    Gets detailed informaiton about papers on a specific topic
+    Gets detailed information about papers on a specific topic
 
     Inputs:
         - topic (str): The topic to get papers for
     '''
 
-    topic_dir = topic.lower().replace(" ", "_")
-    papers_file = os.path.join(PAPER_DIR, topic_dir, "papers_info.json")
-
-    if not os.path.exists(papers_file):
-        return f"# No papers found for topic: {topic}"
-
-    try:
-        with open(papers_file, 'r') as f:
-            papers_data = json.load(f)
-
-        content = f"# Papers on {topic.replace("_", " ").title()}\n\n"
-        content += f'Total papers: {len(papers_data)}\n\n'
-
-        for paper_id, paper_info in papers_data.items():
-            content += f"## {paper_info['title']}\n"
-            content += f"- **Authors**: {', '.join(paper_info['authors'])}\n"
-            content += f"- **Summary**: {paper_info['summary']}\n"
-            content += f"- **PDF URL**: {paper_info['pdf_url']}\n"
-            content += f"- **Published**: {paper_info['published']}\n\n"
-
-        return content
+    # Convert topic to the same format used for storage keys
+    topic_key = topic.lower().replace(" ", "_")
     
-    except json.JSONDecodeError:
-        return f"# Error reading papers data for {topic}\n\nThe papers data file is corrupted."
+    if topic_key not in papers_storage:
+        return f"# No papers found for topic: {topic}\n\nUse search_papers('{topic}') to search for papers on this topic."
+
+    papers_data = papers_storage[topic_key]
+
+    if not papers_data:
+        return f"# No papers stored for topic: {topic}"
+
+    content = f"# Papers on {topic.replace('_', ' ').title()}\n\n"
+    content += f'Total papers: {len(papers_data)}\n\n'
+
+    for paper_id, paper_info in papers_data.items():
+        content += f"## {paper_info['title']}\n"
+        content += f"- **Paper ID**: {paper_id}\n"
+        content += f"- **Authors**: {', '.join(paper_info['authors'])}\n"
+        content += f"- **Summary**: {paper_info['summary']}\n"
+        content += f"- **PDF URL**: {paper_info['pdf_url']}\n"
+        content += f"- **Published**: {paper_info['published']}\n\n"
+
+    return content
     
 
 @mcp.prompt()

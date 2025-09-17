@@ -23,4 +23,6 @@ dependencies = [
     "polars>=1.24.0",
     "pyyaml>=6.0.2",
     "sentence-transformers>=4.1.0",
+    "strands-agents-tools>=0.0.1",
+    "strands-agents[openai]>=1.8.0",
 ]
